@@ -17,3 +17,6 @@ asks you which categories youd like to track
 asks what kind of scale you want to track them with
 ask you your first round of questions
 shows you your first day graph
+
+table for users
+table for each users data with each category and values over time
