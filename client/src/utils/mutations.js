@@ -25,3 +25,11 @@ export const ADD_USER = gql`
             }
         }
     }`;
+
+export const ADD_MOOD = gql`
+    mutation addMood($userId: String!, $mood: Int!) {
+        addMood(userId: $userId, mood: $mood) {
+            _id
+            mood
+        }
+    }`;
