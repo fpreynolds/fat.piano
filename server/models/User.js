@@ -1,8 +1,8 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const trackerSchema = require("./Tracker");
-const historySchema = require("./History");
+const Tracker = require("./Tracker");
+const History = require("./History");
 
 const userSchema = new Schema(
   {
@@ -24,8 +24,8 @@ const userSchema = new Schema(
     personal: {
       type: Boolean,
     },
-    tracker: [trackerSchema],
-    history: [historySchema],
+    tracker: [Tracker],
+    history: [History],
   },
   {
     toJSON: {
