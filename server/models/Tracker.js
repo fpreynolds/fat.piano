@@ -1,27 +1,47 @@
 const { Schema, model } = require("mongoose");
+const dateFormat = require("../utils/dateFormat");
 
 const trackerSchema = new Schema(
   {
     personal: {
-      type: Boolean,
+      type: Number,
+      min: 0,
+      max: 5,
     },
     social: {
-      type: Boolean,
+      type: Number,
+      min: 0,
+      max: 5,
     },
     sleep: {
-      type: Boolean,
+      type: Number,
+      min: 0,
+      max: 5,
     },
     eats: {
-      type: Boolean,
+      type: Number,
+      min: 0,
+      max: 5,
     },
     exercise: {
-      type: Boolean,
+      type: Number,
+      min: 0,
+      max: 5,
     },
     general: {
-      type: Boolean,
+      type: Number,
+      min: 0,
+      max: 5,
     },
     honest: {
-      type: Boolean,
+      type: Number,
+      min: 0,
+      max: 5,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (timestamp) => dateFormat(timestamp),
     },
   },
   {
