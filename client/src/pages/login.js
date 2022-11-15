@@ -41,6 +41,7 @@ const Login = () => {
                                 className="username"
                                 placeholder="Please enter your username here"
                                 name="user"
+                                type="text"
                                 value={formState.username}
                                 onChange={handleChange}
                             />
@@ -48,6 +49,7 @@ const Login = () => {
                                 className="password"
                                 placeholder="Please enter your password here"
                                 name="password"
+                                type="password"
                                 value={formState.password}
                                 onChange={handleChange}
                             />
