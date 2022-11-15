@@ -1,5 +1,8 @@
 # fat.piano - Wellness Tracker
 
+deployed:
+ryans: https://peaceful-basin-12734.herokuapp.com/
+
 VCBC Project 3
 
 ideas:
