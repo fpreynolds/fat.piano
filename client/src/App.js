@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -7,9 +7,10 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import logo from "./logo.svg";
 import "./App.css";
 
+import Home from "./pages/Home";
+import NavExample from "./components/Navbar";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 
@@ -36,15 +37,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        {/* <NavTabs /> */}
-        {/* <div className="routes"> */}
-       <Routes>
-        <Route exact path="/login" component={Login} >
-        </Route>
-        <Route exact path="/signup" component={Signup}>
-        </Route>
-        {/* </div> */}
-        </Routes>
+        <div>
+          <NavExample />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/signup" element={<Signup />}></Route>
+          </Routes>
+        </div>
       </Router>
     </ApolloProvider>
   );
