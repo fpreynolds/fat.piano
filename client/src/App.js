@@ -6,7 +6,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -38,6 +38,7 @@ function App() {
       <Router>
         {/* <NavTabs /> */}
         {/* <div className="routes"> */}
+       <Routes>
         <Route exact path="/login">
           <Login />
         </Route>
@@ -45,6 +46,7 @@ function App() {
           <Signup />
         </Route>
         {/* </div> */}
+        </Routes>
       </Router>
     </ApolloProvider>
   );
