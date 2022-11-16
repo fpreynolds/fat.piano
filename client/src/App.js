@@ -39,11 +39,9 @@ function App() {
         {/* <NavTabs /> */}
         {/* <div className="routes"> */}
        <Routes>
-        <Route exact path="/login">
-          <Login />
+        <Route exact path="/login" component={Login} >
         </Route>
-        <Route exact path="/signup">
-          <Signup />
+        <Route exact path="/signup" component={Signup}>
         </Route>
         {/* </div> */}
         </Routes>
