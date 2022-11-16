@@ -11,25 +11,13 @@ const typeDefs = gql`
 
   type Tracker {
     _id: ID!
-    personal: Int
-    social: Int
-    sleep: Int
-    eats: Int
-    exercise: Int
-    general: Int
-    honest: Int
+    mood: Int
     createdAt: Date
   }
 
   type: History {
     _id: ID!
-    personalHistory: Array
-    socialHistory: Array
-    sleepHistory: Array
-    eatsHistory: Array
-    exerciseHistory: Array
-    generalHistory: Array
-    honestHistory: Array
+    moodHistory: Array
   }
 
   type Auth {
