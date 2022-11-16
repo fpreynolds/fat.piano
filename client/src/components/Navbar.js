@@ -3,6 +3,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+
+// Home | Tracker | History | Login/Logout/Signup
 function BasicExample() {
   return (
     <Navbar bg="light" expand="lg">
