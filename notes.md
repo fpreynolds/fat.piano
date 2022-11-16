@@ -41,3 +41,17 @@ Food
 
 Time management
 "How well did you manage your time today?"
+
+## GAME PLAN
+
+push things to heroku
+make sure lasnding page is loading
+test other pages
+chart.js running
+set up db on atlas w/ heroku
+finish pages
+style everything
+
+google spreadsheet with our own data on questions
+
+by thursday: homepage and navbar running, pushed to heroku, set up db on atlas w/heroku

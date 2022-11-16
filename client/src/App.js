@@ -36,7 +36,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <NavTabs />
+        {/* <NavTabs /> */}
         <div className="routes">
           <Route exact path="/login">
             <Login />
