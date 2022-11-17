@@ -39,7 +39,7 @@ function Nav() {
           <span role="img" aria-label="Not Possum">
             🦝
           </span>
-          Home
+          click for home
         </Link>
       </h1>
 
