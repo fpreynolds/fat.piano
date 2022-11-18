@@ -4,6 +4,9 @@ const dateFormat = require("../utils/dateFormat");
 const trackerSchema = new Schema(
   {
     mood: {
+      type: String,
+    },
+    rating: {
       type: Number,
       min: 0,
       max: 5,

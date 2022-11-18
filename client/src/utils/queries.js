@@ -9,6 +9,7 @@ export const QUERY_USER = gql`
       tracker {
         _id
         mood
+        rating
         createdAt
       }
       history {
