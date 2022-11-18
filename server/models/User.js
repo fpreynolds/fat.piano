@@ -1,8 +1,9 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
+const { Schema } = mongoose;
+
 const Tracker = require("./Tracker");
-const History = require("./History");
 
 const userSchema = new Schema(
   {
@@ -22,11 +23,7 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    personal: {
-      type: Boolean,
-    },
-    tracker: [Tracker],
-    history: [History],
+    trackers: [Tracker.schema],
   },
   {
     toJSON: {
@@ -48,6 +45,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const User = model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
