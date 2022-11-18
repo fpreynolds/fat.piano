@@ -13,3 +13,15 @@ const historySchema = new Schema(
   }
 );
 module.exports = historySchema;
+
+
+
+trackers {
+  datapoints (
+    mood: 1
+    sleep: 5
+
+  ),
+  userId: 1234,
+  createdAt: 11/17/22
+}
