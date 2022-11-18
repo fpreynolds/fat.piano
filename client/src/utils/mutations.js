@@ -23,8 +23,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_MOOD = gql`
-  mutation addMood($userId: String!, $mood: Int!) {
-    addMood(userId: $userId, mood: $mood) {
+  mutation addMood($username: String!, $mood: String, $rating: Int) {
+    addMood(username: $username, mood: $mood {
       _id
       mood
     }

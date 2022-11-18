@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-//need to be called,
-
-// import { useMutation } from '@apollo/client';
-// import { ADD_MOOD } from '../utils/mutations';
+import { useMutation } from "@apollo/client";
+import { ADD_MOOD } from "../utils/mutations";
 
 function Mood({ close, show, mood, addMood }) {
-  const [emoji, setEmoji] = useState([
+  const [currentMood, setCurrentMood] = useState([
     <span class="thumbsUp">👍</span>,
     <span class="meh">😐</span>,
     <span class="thumbsDown">👎</span>,
@@ -26,19 +24,19 @@ function Mood({ close, show, mood, addMood }) {
           <ul>
             <li>
               <Button class="up" onClick={() => addMood(3)}>
-                {emoji[0]}
+                {currentMood[0]}
               </Button>{" "}
             </li>
             <br />
             <li>
               <Button class="eh" onClick={() => addMood(2)}>
-                {emoji[1]}
+                {currentMood[1]}
               </Button>{" "}
             </li>
             <br />
             <li>
               <Button class="down" onClick={() => addMood(1)}>
-                {emoji[2]}{" "}
+                {currentMood[2]}{" "}
               </Button>{" "}
             </li>
           </ul>

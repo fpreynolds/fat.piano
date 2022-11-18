@@ -11,7 +11,8 @@ const typeDefs = gql`
 
   type Tracker {
     _id: ID!
-    mood: Int
+    mood: String
+    rating: Int
     createdAt: Date
   }
 
