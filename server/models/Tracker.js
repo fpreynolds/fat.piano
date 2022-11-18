@@ -1,12 +1,30 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 const dateFormat = require("../utils/dateFormat");
 
 const trackerSchema = new Schema(
   {
     mood: {
-      type: String,
+      type: Number,
+      min: 0,
+      max: 5,
     },
-    rating: {
+    diet: {
+      type: Number,
+      min: 0,
+      max: 5,
+    },
+    sleep: {
+      type: Number,
+      min: 0,
+      max: 5,
+    },
+    exercise: {
+      type: Number,
+      min: 0,
+      max: 5,
+    },
+    timeManagement: {
       type: Number,
       min: 0,
       max: 5,
@@ -16,6 +34,12 @@ const trackerSchema = new Schema(
       default: Date.now,
       get: (timestamp) => dateFormat(timestamp),
     },
+    userId: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   {
     toJSON: {
@@ -24,4 +48,6 @@ const trackerSchema = new Schema(
   }
 );
 
-module.exports = trackerSchema;
+const Tracker = mongoose.model("Tracker", trackerSchema);
+
+module.exports = Tracker;

@@ -5,15 +5,18 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String!
-    tracker: [Tracker]
-    history: [History]
+    
   }
 
   type Tracker {
     _id: ID!
-    mood: String
-    rating: Int
+    mood: Int
+    diet: Int
+    sleep: Int
+    exercise: Int
+    timeManagement: Int
     createdAt: Date
+    userId
   }
 
   type: History {
