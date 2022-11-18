@@ -16,9 +16,9 @@ const typeDefs = gql`
     createdAt: Date
   }
 
-  type: History {
+  type History {
     _id: ID!
-    moodHistory: Array
+    moodHistory: String
   }
 
   type Auth {
