@@ -55,3 +55,5 @@ style everything
 google spreadsheet with our own data on questions
 
 by thursday: homepage and navbar running, pushed to heroku, set up db on atlas w/heroku
+
+route compoonents?
