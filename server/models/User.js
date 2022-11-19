@@ -5,32 +5,25 @@ const { Schema } = mongoose;
 
 const Tracker = require("./Tracker");
 
-const userSchema = new Schema(
-  {
-    username: {
-      type: String,
-      require: true,
-      unique: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      match: [/.+@.+\..+/, "Must use a valid email address"],
-    },
-    password: {
-      type: String,
-      required: true,
-      minlength: 5,
-    },
-    trackers: [Tracker.schema],
+const userSchema = new Schema({
+  username: {
+    type: String,
+    require: true,
+    unique: true,
   },
-  {
-    toJSON: {
-      virtuals: true,
-    },
-  }
-);
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, "Must use a valid email address"],
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 5,
+  },
+  trackers: [Tracker.schema],
+});
 
 userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
