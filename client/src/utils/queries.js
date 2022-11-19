@@ -5,17 +5,47 @@ export const QUERY_USER = gql`
     user {
       _id
       username
-      email
       trackers {
         _id
-        mood
-        diet
-        sleep
-        exercise
-        timeManagement
         createdAt
-        userId
+        keys {
+          _id
+          rating
+        }
       }
+    }
+  }
+`;
+
+export const QUERY_KEYS = gql`
+  query getKeys($theme: ID) {
+    keys(theme: $theme) {
+      _id
+      rating
+      theme {
+        _id
+      }
+    }
+  }
+`;
+
+export const QUERY_ALL_KEYS = gql`
+  {
+    keys {
+      _id
+      rating
+      theme {
+        name
+      }
+    }
+  }
+`;
+
+export const QUERY_THEMES = gql`
+  {
+    themes {
+      _id
+      name
     }
   }
 `;
