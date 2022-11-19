@@ -17,7 +17,7 @@ const typeDefs = gql`
   type Key {
     _id: ID!
     rating: Int
-    category: Category
+    theme: Theme
   }
 
   type Theme {
