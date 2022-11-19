@@ -5,30 +5,33 @@ import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 function Login(props) {
-  const [formState, setFormState] = useState({ username: "", password: "" });
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
   const handleChange = (e) => {
-    const { username, value } = e.target;
+    const { name, value } = e.target;
     setFormState({
       ...formState,
-      [username]: value,
+      [name]: value,
     });
   };
-  const handleFormSubmit = async (event) => {
+  async function handleFormSubmit(event) {
     event.preventDefault();
     try {
       const { data } = await login({
         variables: { ...formState },
       });
-      Auth.login(data.login.token);
+      const { token, user } = data.login;
+      console.log(user);
+      Auth.login(token);
     } catch (e) {
       console.log(e);
     }
     setFormState({
       username: "",
+      email: "",
       password: "",
     });
-  };
+  }
   return (
     <div className="container login">
       <h3 className="loginHeader">Login</h3>
@@ -36,13 +39,14 @@ function Login(props) {
         <form onSubmit={handleFormSubmit}>
           {/* <card> not recognized in react format */}
           <div className="flex-row">
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="username">Email:</label>
             <input
-              className="username"
-              placeholder="Please enter your username here"
-              name="user"
-              type="text"
+              className="email"
+              placeholder="Please enter your email here"
+              name="email"
+              type="email"
               //   value cannot be preset
+              value={formState.email}
               onChange={handleChange}
             />
           </div>
@@ -54,6 +58,7 @@ function Login(props) {
               name="password"
               type="password"
               id="secretPassword"
+              value={formState.password}
               onChange={handleChange}
             />
           </div>
@@ -68,7 +73,7 @@ function Login(props) {
             <Link to="/signup">Please signup here</Link>
           </p>
         </form>
-        {error && <div className="errorMessage">{error.message}</div>}
+        {error && <div className="errorMessage">{"Login failed! Please signup first! Or try logging in again."}</div>}
       </div>
     </div>
   );
