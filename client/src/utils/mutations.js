@@ -22,14 +22,17 @@ export const ADD_USER = gql`
   }
 `;
 
-//future development concept
-
-// export const ADD_MOOD = gql`
-//   mutation addMood($username: String!, $mood: String, $rating: Int) {
-//     addMood(username: $username, mood: $mood, rating: $rating) {
-//       _id
-//       mood
-//       rating
-//     }
-//   }
-// `;
+export const ADD_TRACKER = gql`
+  mutation addTracker($keys: [ID]!) {
+    addTracker(keys: $keys) {
+      createdAt
+      keys {
+        _id
+        rating
+        theme {
+          name
+        }
+      }
+    }
+  }
+`;
