@@ -22,12 +22,14 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_MOOD = gql`
-  mutation addMood($username: String!, $mood: String, $rating: Int) {
-    addMood(username: $username, mood: $mood, rating: $rating) {
-      _id
-      mood
-      rating
-    }
-  }
-`;
+//future development concept
+
+// export const ADD_MOOD = gql`
+//   mutation addMood($username: String!, $mood: String, $rating: Int) {
+//     addMood(username: $username, mood: $mood, rating: $rating) {
+//       _id
+//       mood
+//       rating
+//     }
+//   }
+// `;
