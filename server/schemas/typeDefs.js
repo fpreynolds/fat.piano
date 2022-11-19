@@ -5,23 +5,24 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String!
-    
+    trackers: [Tracker]
   }
 
   type Tracker {
     _id: ID!
-    mood: Int
-    diet: Int
-    sleep: Int
-    exercise: Int
-    timeManagement: Int
-    createdAt: Date
-    userId
+    createdAt: String
+    keys: [Key]
   }
 
-  type History {
+  type Key {
     _id: ID!
-    moodHistory: String
+    rating: Int
+    category: Category
+  }
+
+  type Theme {
+    _id: ID
+    name: String
   }
 
   type Auth {
@@ -31,12 +32,18 @@ const typeDefs = gql`
 
   type Query {
     user: User
+    tracker(_id: ID!): Tracker
+    key(_id: ID!): Key
+    keys(theme: ID, name: String): [Key]
+    themes: [Theme]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addTracker(keys: [ID]!): Tracker
+    updateUser(username: String, email: String, password: String): User
   }
 `;
-
+// mutation for updateKey possible for completed project, setup resolver first...?
 module.exports = typeDefs;

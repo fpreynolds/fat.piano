@@ -6,15 +6,15 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      tracker {
+      trackers {
         _id
         mood
-        rating
+        diet
+        sleep
+        exercise
+        timeManagement
         createdAt
-      }
-      history {
-        _id
-        moodHistory
+        userId
       }
     }
   }
