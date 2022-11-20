@@ -24,6 +24,20 @@ export const ADD_USER = gql`
   }
 `;
 
+export const ADD_MOOD = gql`
+  mutation addMood($username: String!, $mood: String!, $now: Date!) {
+    addMood(username: $username, mood: $mood, now: $now) {
+      token
+      curMood {
+        _id
+        userId
+        mood
+        now
+      }
+    }
+  }
+`;
+
 export const ADD_TRACKER = gql`
   mutation addTracker($keys: [ID]!) {
     addTracker(keys: $keys) {

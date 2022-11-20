@@ -1,7 +1,11 @@
 import Select from "react-select";
 import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import {ADD_MOOD} from "../utils/mutations";
+import Auth from "../utils/auth";
 
-  function Mood() {
+function Mood() {
+  const [addMood] = useMutation(ADD_MOOD);  
   const [selectedOption, setSelectedOption] = useState();
   const options = [
     {
@@ -30,9 +34,35 @@ import React, { useState } from "react";
     }
   ];
 
+  const clickSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(selectedOption);
+      const uid = Auth.getToken();
+      const now = Date.now();
+  
+      const {data} = await addMood({
+        variables: {uid,selectedOption,now},
+      });
+      console.log(uid);
+      //const { token, mood } = data.addMood;
+      //store mood or data token for chart etc???
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  const handleChange = e => {
+      setSelectedOption(e.value);
+  }
+ 
   return (
     <div className="App">
-      <Select value={selectedOption} options={options} />
+      <h3 className="mood">What is your mood today?</h3>
+      <Select options={options} 
+          value={options.find(obj => obj.value === selectedOption)} 
+          onChange={handleChange}
+      />
+      <button type="submit" onClick={clickSubmit}>Submit Mood</button>
     </div>
   );
 }
