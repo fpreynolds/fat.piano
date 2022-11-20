@@ -27,13 +27,11 @@ export const ADD_USER = gql`
 export const ADD_TRACKER = gql`
   mutation addTracker($keys: [ID]!) {
     addTracker(keys: $keys) {
-      createdAt
+      theme
       keys {
         _id
         rating
-        theme {
-          name
-        }
+        timestamp
       }
     }
   }

@@ -5,8 +5,7 @@ import {
   ADD_MULTIPLE_TO_TRACKER,
   REMOVE_FROM_TRACKER,
   UPDATE_KEYS,
-  UPDATE_THEMES,
-  UPDATE_CURRENT_THEME,
+  UPDATE_CURRENT_KEY,
 } from "./actions;";
 
 export const reducer = (state, action) => {
@@ -19,7 +18,9 @@ export const reducer = (state, action) => {
     case UPDATE_TRACKER:
       return {
         ...state,
-        // Not finished
+        //!TODO:
+        tracker: [...action.tracker],
+        // Not finished, may not work
       };
     case ADD_MULTIPLE_TO_TRACKER:
       return {
@@ -39,15 +40,10 @@ export const reducer = (state, action) => {
         ...state,
         keys: [...action.keys],
       };
-    case UPDATE_THEMES:
+    case UPDATE_CURRENT_KEY:
       return {
         ...state,
-        themes: [...action.themes],
-      };
-    case UPDATE_CURRENT_THEME:
-      return {
-        ...state,
-        currentTheme: action.currentTheme,
+        currentKey: action.currentKey,
       };
     default:
       return state;
