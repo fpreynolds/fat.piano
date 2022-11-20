@@ -13,21 +13,27 @@ const Signup = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        username: formState.username,
-        email: formState.email,
-        password: formState.password,
-      },
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+      const { token, user } = data.addUser;
+      console.log(user);
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
+    setFormState({
+      username: "",
+      email: "",
+      password: "",
     });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
   };
   const handleChange = (e) => {
-    const { username, value } = e.target;
+    const { name, value } = e.target;
     setFormState({
       ...formState,
-      [username]: value,
+      [name]: value,
     });
   };
 
@@ -42,6 +48,7 @@ const Signup = () => {
             name="username"
             type="username"
             id="username"
+            value={formState.username}
             onChange={handleChange}
           />
         </div>
@@ -52,6 +59,7 @@ const Signup = () => {
             name="email"
             type="email"
             id="email"
+            value={formState.email}
             onChange={handleChange}
           />
         </div>
@@ -62,6 +70,7 @@ const Signup = () => {
             name="password"
             type="password"
             id="password"
+            value={formState.password}
             onChange={handleChange}
           />
         </div>
