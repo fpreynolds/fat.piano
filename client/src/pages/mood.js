@@ -1,3 +1,44 @@
+import Select from "react-select";
+import React, { useState } from "react";
+
+  function Mood() {
+  const [selectedOption, setSelectedOption] = useState();
+  const options = [
+    {
+      value: "thumbsUp",
+      label: (
+        <div>
+         👍
+        </div>
+      )
+    },
+    {
+      value: "meh",
+      label: (
+        <div>
+          😐
+        </div>
+      )
+    },
+    {
+      value: "thumbsDown",
+      label: (
+        <div>
+          👎
+        </div>
+      )
+    }
+  ];
+
+  return (
+    <div className="App">
+      <Select value={selectedOption} options={options} />
+    </div>
+  );
+}
+export default Mood;
+
+/*
 import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -50,3 +91,4 @@ function Mood({ close, show, mood, addMood }) {
 }
 
 export default Mood;
+*/
