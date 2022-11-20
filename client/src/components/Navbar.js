@@ -1,7 +1,6 @@
 import React from "react";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
-import Mood from '../pages/mood';
 
 function Nav() {
   function showNavigation() {
@@ -9,7 +8,7 @@ function Nav() {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/mood"> <Mood />Mood</Link>
+            <Link to="/mood">Mood</Link>
           </li>
           <li className="mx-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
