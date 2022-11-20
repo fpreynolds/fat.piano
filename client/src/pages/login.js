@@ -14,24 +14,19 @@ function Login(props) {
       [name]: value,
     });
   };
-  async function handleFormSubmit(event) {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await login({
-        variables: { ...formState },
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
       });
-      const { token, user } = data.login;
-      console.log(user);
+      const token = mutationResponse.data.login.token;
       Auth.login(token);
     } catch (e) {
       console.log(e);
     }
-    setFormState({
-      username: "",
-      email: "",
-      password: "",
-    });
-  }
+  };
+
   return (
     <div className="container login">
       <h3 className="loginHeader">Login</h3>
@@ -39,7 +34,7 @@ function Login(props) {
         <form onSubmit={handleFormSubmit}>
           {/* <card> not recognized in react format */}
           <div className="flex-row">
-            <label htmlFor="username">Email:</label>
+            <label htmlFor="email">Email:</label>
             <input
               className="email"
               placeholder="Please enter your email here"
@@ -51,13 +46,13 @@ function Login(props) {
             />
           </div>
           <div className="flex-row">
-            <label htmlFor="secretPassword">Password:</label>
+            <label htmlFor="password">Password:</label>
             <input
               className="password"
               placeholder="********"
               name="password"
               type="password"
-              id="secretPassword"
+              id="password"
               value={formState.password}
               onChange={handleChange}
             />
@@ -73,7 +68,11 @@ function Login(props) {
             <Link to="/signup">Please signup here</Link>
           </p>
         </form>
-        {error && <div className="errorMessage">{"Login failed! Please signup first! Or try logging in again."}</div>}
+        {error && (
+          <div className="errorMessage">
+            {"Login failed! Please signup first! Or try logging in again."}
+          </div>
+        )}
       </div>
     </div>
   );
