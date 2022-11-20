@@ -7,11 +7,11 @@ const resolvers = {
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: "trackers.keys",
-          populate: "theme",
+          path: "trackers",
+          populate: "keys",
         });
 
-        user.trackers.sort((a, b) => b.createdAt - a.createdAt);
+        user.trackers.sort((a, b) => b.timestamp - a.timestamp);
 
         return user;
       }
@@ -20,29 +20,30 @@ const resolvers = {
     },
     tracker: async (parent, { _id }, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: "trackers.keys",
-          populate: "theme",
-        });
+        const user = await User.findById(context.user._id).populate("keys");
 
         return user.trackers.id(_id);
       }
 
       throw new AuthenticationError("Not logged in");
     },
-    key: async (parent, { _id }) => {
-      return await Key.findById(_id).populate("theme");
-    },
-    keys: async (parent, { theme }) => {
-      const params = {};
 
-      if (theme) {
-        params.theme = theme;
+    //! on of these 'key' should work hopefully maybe
+    key: async (parent, { _id }, context) => {
+      if (context.tracker) {
+        const tracker = await Tracker.findById(context.tracker._id);
+
+        return tracker.keys.id(_id);
       }
-      return await Key.find(params).populate("theme");
+
+      throw new AuthenticationError("Not logged in");
     },
-    themes: async () => {
-      return await Theme.find();
+
+    // key: async (parent, { _id }) => {
+    //   return await Key.findById(_id);
+    // },
+    keys: async () => {
+      return await Key.find();
     },
   },
 
@@ -90,7 +91,8 @@ const resolvers = {
       }
       throw new AuthenticationError("Not logged in");
     },
-    // updateKey: async (parent, { _id, rating }) => {
+    //!TODO: figure this out hopefully maybe
+    // updateKey: async (parent, { _id }) => {
     //   // key to be updated based on rating system,
     //   //this mutation could possibly be deleted
     // },

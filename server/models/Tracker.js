@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const trackerSchema = new Schema({
-  createdAt: {
-    type: Date,
-    default: Date.now,
+  theme: {
+    type: String,
   },
   keys: [
     {

@@ -10,19 +10,14 @@ const typeDefs = gql`
 
   type Tracker {
     _id: ID!
-    createdAt: String
+    theme: String
     keys: [Key]
   }
 
   type Key {
     _id: ID!
     rating: Int
-    theme: Theme
-  }
-
-  type Theme {
-    _id: ID
-    name: String
+    timestamp: String
   }
 
   type Auth {
@@ -34,14 +29,13 @@ const typeDefs = gql`
     user: User
     tracker(_id: ID!): Tracker
     key(_id: ID!): Key
-    keys(theme: ID, name: String): [Key]
-    themes: [Theme]
+    keys: [Key]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addTracker(keys: [ID]!): Tracker
+    addTracker(theme: String, keys: [ID]!): Tracker
     updateUser(username: String, email: String, password: String): User
   }
 `;

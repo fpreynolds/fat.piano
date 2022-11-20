@@ -1,15 +1,17 @@
-const mongoose = require("mongoose");
+//!No longer being used, saved temporarily
 
-const { Schema } = mongoose;
+// const mongoose = require("mongoose");
 
-const themeSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-});
+// const { Schema } = mongoose;
 
-const Theme = mongoose.model("Theme", themeSchema);
+// const themeSchema = new Schema({
+//   name: {
+//     type: String,
+//     required: true,
+//     trim: true,
+//   },
+// });
 
-module.exports = Theme;
+// const Theme = mongoose.model("Theme", themeSchema);
+
+// module.exports = Theme;

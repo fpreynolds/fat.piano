@@ -7,45 +7,48 @@ export const QUERY_USER = gql`
       username
       trackers {
         _id
-        createdAt
+        theme
         keys {
           _id
           rating
+          timestamp
         }
       }
     }
   }
 `;
 
-export const QUERY_KEYS = gql`
-  query getKeys($theme: ID) {
-    keys(theme: $theme) {
+export const QUERY_TRACKERS = gql`
+  query getTrackers($key: ID) {
+    trackers(key: $key) {
       _id
       rating
-      theme {
+      key {
         _id
       }
     }
   }
 `;
 
-export const QUERY_ALL_KEYS = gql`
+export const QUERY_ALL_TRACKERS = gql`
   {
-    keys {
+    trackers {
       _id
-      rating
-      theme {
-        name
+      theme
+      keys {
+        rating
+        timestamp
       }
     }
   }
 `;
 
-export const QUERY_THEMES = gql`
+export const QUERY_KEYS = gql`
   {
-    themes {
+    keys {
       _id
-      name
+      rating
+      timestamp
     }
   }
 `;

@@ -9,10 +9,9 @@ const keySchema = new Schema({
     max: 5,
     default: 0,
   },
-  theme: {
-    type: Schema.Types.ObjectId,
-    ref: "Theme",
-    required: true,
+  timestamp: {
+    type: Date,
+    default: Date.now,
   },
 });
 
