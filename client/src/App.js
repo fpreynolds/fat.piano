@@ -15,6 +15,7 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Mood from "./pages/mood";
 import LineChart from "./components/Chart-Demo";
+import Profile from "./pages/profile";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -46,7 +47,7 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/mood" element={<Mood />}></Route>
-            <Route path="/line" element={<LineChart />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
           </Routes>
         </div>
       </Router>
