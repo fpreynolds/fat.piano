@@ -1,6 +1,6 @@
 import React from "react";
-import "bulma/css/bulma.multiline.css";
-import { Button } from "react-bulma-components";
+import "bulma/css/bulma.min.css";
+import "./App.css";
 import {
   ApolloClient,
   InMemoryCache,
@@ -41,9 +41,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div className="App">
           <NavExample />
-          <Routes>
+          <Routes className="navbar">
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
