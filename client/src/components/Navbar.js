@@ -8,11 +8,16 @@ function Nav() {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/mood">Mood</Link>
-            <Link to="/profile">profile</Link>
+            <Link to="/key">Key</Link>
           </li>
           <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <Link to="/profile">Profile</Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/tracker">Trackers</Link>
+          </li>
+          {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+          <li className="mx-1">
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
