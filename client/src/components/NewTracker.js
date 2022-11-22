@@ -4,31 +4,31 @@ import Auth from "../utils/auth";
 import { ADD_TRACKER } from "../utils/mutations";
 
 const NewTracker = () => {
-  const [formState, setFormState] = useState({
+  const [newTracker, setNewTracker] = useState({
     theme: "",
   });
   const [addTracker] = useMutation(ADD_TRACKER);
   const handleFormSubmit = async (e) => {
-    const theme = formState.theme;
-    console.log(theme);
     e.preventDefault();
     try {
-      const { theme } = await addTracker();
+      const { data } = await addTracker({
+        variables: { ...newTracker },
+      });
+      const { theme } = data.addTracker;
       Auth.saveTheme(theme);
       console.log(theme);
     } catch (e) {
-      console.log(theme);
       console.log(e);
     }
-    setFormState({
+    setNewTracker({
       theme: "",
     });
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormState({
-      ...formState,
+    setNewTracker({
+      ...newTracker,
       [name]: value,
     });
   };
@@ -43,7 +43,7 @@ const NewTracker = () => {
             name="theme"
             type="theme"
             id="theme"
-            value={formState.theme}
+            value={newTracker.theme}
             onChange={handleChange}
           />
         </div>
