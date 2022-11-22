@@ -22,15 +22,15 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_MOOD = gql`
-  mutation addMood($username: String!, $mood: String!, $now: Date!) {
-    addMood(username: $username, mood: $mood, now: $now) {
+export const ADD_KEY = gql`
+  mutation addKey($username: String!, $key: String!, $timestamp: String!) {
+    addKey(username: $username, key: $key, timestamp: $timestamp) {
       token
-      curMood {
+      Key {
         _id
         userId
-        mood
-        now
+        rating
+        timestamp
       }
     }
   }
