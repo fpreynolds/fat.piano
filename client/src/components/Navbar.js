@@ -1,11 +1,13 @@
 import React from "react";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
+import "../App.css"
 
 function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
+        <div className="navbar">
         <ul className="flex-row">
           <li className="mx-1">
             <Link to="/key">Key</Link>
@@ -23,6 +25,7 @@ function Nav() {
             </a>
           </li>
         </ul>
+        </div>
       );
     } else {
       return (

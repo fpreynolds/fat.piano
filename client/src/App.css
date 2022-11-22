@@ -3,5 +3,34 @@
 	height: 100vh;
 	background-color: #f0dc82;
 	font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-	font-size: larger;
+	font-size: 25px;
+}
+
+.navbar {
+	text-align: right;
+	justify-content: right;
+	display: flex;
+	background-color: #f0dc82;
+}
+
+ul {
+	list-style-type: none;
+	justify-content: space-between;
+	align-items: center;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: gray;
 }
