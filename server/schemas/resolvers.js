@@ -73,15 +73,15 @@ const resolvers = {
     addTracker: async (parent, { keys }, context) => {
       console.log(context);
       if (context.user) {
-        const tracker = new Tracker({ keys });
+        const tracker = new Tracker( { keys });
 
-        await User.findByIdAndUpdate(context.user._id, {
+        await User.findByIdAndUpdate(context.user.trackers._id, {
           $push: { trackers: tracker },
         });
 
         return tracker;
       }
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError("this one");
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {
