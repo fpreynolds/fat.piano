@@ -14,7 +14,7 @@ import NavExample from "./components/Navbar";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Key from "./pages/key";
-import Tracker from "./pages/tracker";
+import Tracker from "./pages/Tracker";
 import Profile from "./pages/profile";
 
 const httpLink = createHttpLink({
