@@ -1,19 +1,18 @@
 import React from "react";
 import LineChart from "../components/Chart-Demo";
-import auth from "../utils/auth";
+import Auth from "../utils/auth";
 import lineChart from "../components/Chart-Demo";
+// import ListTracker from "../components/TrackerList";
+import NewTracker from "../components/NewTracker";
 
 const Profile = () => {
   return (
     <div className="container">
       <h1>User Profile</h1>
       <div className="container">
-        <h2>User Data</h2>
-        <LineChart />
-        <p>
-          This is your data from the last seven days, graphed so you can see how
-          youre doing!
-        </p>
+        <h2>Trackers</h2>
+        {/* <ListTracker /> */}
+        <NewTracker />
       </div>
     </div>
   );
