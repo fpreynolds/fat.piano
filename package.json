@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "chart.js": "^4.0.1",
+    "react-bulma-components": "^4.1.0",
     "react-chartjs-2": "^5.0.1"
   }
 }

@@ -25,6 +25,9 @@ class AuthService {
     localStorage.setItem("id_token", idToken);
     window.location.assign("/");
   }
+  saveTheme(theme) {
+    localStorage.setItem("theme", theme);
+  }
   logout() {
     localStorage.removeItem("id_token");
     window.location.assign("/login");
