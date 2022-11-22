@@ -14,7 +14,7 @@ import NavExample from "./components/Navbar";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Mood from "./pages/mood";
-import LineChart from "./components/Chart-Demo";
+// import LineChart from "./components/Chart-Demo";
 import Profile from "./pages/profile";
 
 const httpLink = createHttpLink({
