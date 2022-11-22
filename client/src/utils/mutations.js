@@ -37,8 +37,8 @@ export const ADD_KEY = gql`
 `;
 
 export const ADD_TRACKER = gql`
-  mutation addTracker($user: [ID]!) {
-    addTracker(user: $user) {
+  mutation addTracker($theme: String!) {
+    addTracker(theme: $theme) {
       theme
     }
   }
