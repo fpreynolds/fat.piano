@@ -50,7 +50,7 @@ const lineChart = () => {
     maintainAspectRatio: false,
     scales: {
       y: {
-        beginAtZero: true,
+        beginAtZero: false,
       },
     },
     legend: {

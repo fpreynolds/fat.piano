@@ -13,8 +13,8 @@ import Home from "./pages/Home";
 import NavExample from "./components/Navbar";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
-import Mood from "./pages/mood";
-// import LineChart from "./components/Chart-Demo";
+import Key from "./pages/key";
+import Tracker from "./pages/tracker";
 import Profile from "./pages/profile";
 
 const httpLink = createHttpLink({
@@ -46,7 +46,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
-            <Route path="/mood" element={<Mood />}></Route>
+            <Route path="/key" element={<Key />}></Route>
+            <Route path="/tracker" element={<Tracker />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
           </Routes>
         </div>
