@@ -70,10 +70,10 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addTracker: async (parent, { keys }, context) => {
-      console.log(context);
+    addTracker: async (parent, args, context) => {
+      console.log(context.user);
       if (context.user) {
-        const tracker = new Tracker( { keys });
+        const tracker = new Tracker({ keys });
 
         await User.findByIdAndUpdate(context.user.trackers._id, {
           $push: { trackers: tracker },

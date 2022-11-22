@@ -17,7 +17,7 @@ SO THAT I can keep a daily record of my activities
 I WANT to create my own list of themes
 SO THAT I can hold a library of things that matter to me
 I WANT to be able to grade these themes on a scale of 1-5  
- SO THAT I can keep a record over time of how I feel I have reached my goals
+SO THAT I can keep a record over time of how I feel I have reached my goals
 
 ## Table of Contents
 
