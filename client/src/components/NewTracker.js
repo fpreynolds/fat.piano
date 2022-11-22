@@ -8,22 +8,23 @@ const NewTracker = () => {
     theme: "",
   });
   const [addTracker] = useMutation(ADD_TRACKER);
-
   const handleFormSubmit = async (e) => {
+    const theme = formState.theme;
+    console.log(theme);
     e.preventDefault();
     try {
-      const { data } = await addTracker({
-        variables: { ...formState },
-      });
-      const { theme } = data.addTracker;
+      const { theme } = await addTracker();
+      Auth.saveTheme(theme);
       console.log(theme);
     } catch (e) {
+      console.log(theme);
       console.log(e);
     }
     setFormState({
       theme: "",
     });
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState({

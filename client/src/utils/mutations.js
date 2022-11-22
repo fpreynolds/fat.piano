@@ -37,14 +37,9 @@ export const ADD_KEY = gql`
 `;
 
 export const ADD_TRACKER = gql`
-  mutation addTracker($keys: [ID]!) {
-    addTracker(keys: $keys) {
+  mutation addTracker($user: [ID]!) {
+    addTracker(user: $user) {
       theme
-      keys {
-        _id
-        rating
-        timestamp
-      }
     }
   }
 `;
