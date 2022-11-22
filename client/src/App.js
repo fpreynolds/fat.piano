@@ -1,5 +1,6 @@
 import React from "react";
-import { Container } from "./components/styles/Container.styled";
+import "bulma/css/bulma.multiline.css";
+import { Button } from "react-bulma-components";
 import {
   ApolloClient,
   InMemoryCache,
