@@ -36,7 +36,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addTracker(theme: String!): Tracker
     updateUser(username: String, email: String, password: String): User
-    addKey(username: String!, key: String!, timestamp: String!): Key
+    addKey(user: ID!, rating: Int, timestamp: String): Key
   }
 `;
 // mutation for updateKey possible for completed project, setup resolver first...?
