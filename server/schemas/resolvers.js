@@ -75,7 +75,7 @@ const resolvers = {
       if (context.user) {
         const tracker = await Tracker.create(args);
 
-        await User.findByIdAndUpdate(context.user.trackers._id, {
+        await User.findByIdAndUpdate(context.user._id, {
           $push: { trackers: tracker },
         });
 
