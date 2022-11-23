@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import {
-  ADD_TO_TRACKER,
+  ADD_TRACKER,
   UPDATE_TRACKER,
   ADD_MULTIPLE_TO_TRACKER,
   REMOVE_FROM_TRACKER,
@@ -10,10 +10,10 @@ import {
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case ADD_TO_TRACKER:
+    case ADD_TRACKER:
       return {
         ...state,
-        tracker: [...action.key],
+        tracker: [...action.theme],
       };
     case UPDATE_TRACKER:
       return {

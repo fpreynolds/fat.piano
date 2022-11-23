@@ -19,14 +19,10 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_TRACKERS = gql`
-  query getTrackers($key: ID) {
+  {
     trackers(key: $key) {
       _id
-      rating
-      key {
-        _id
-      }
-    }
+      theme
   }
 `;
 
@@ -35,10 +31,6 @@ export const QUERY_ALL_TRACKERS = gql`
     trackers {
       _id
       theme
-      keys {
-        rating
-        timestamp
-      }
     }
   }
 `;

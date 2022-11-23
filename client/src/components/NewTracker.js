@@ -10,6 +10,7 @@ const NewTracker = () => {
   const [addTracker] = useMutation(ADD_TRACKER);
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    console.log(newTracker);
     try {
       const { data } = await addTracker({
         variables: { ...newTracker },
