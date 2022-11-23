@@ -23,12 +23,11 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_KEY = gql`
-  mutation addKey($username: String!, $key: String!, $timestamp: String!) {
-    addKey(username: $username, key: $key, timestamp: $timestamp) {
+  mutation addKey($user: ID!, $rating: Int, $timestamp: String!) {
+    addKey(user: $user, rating: $rating, timestamp: $timestamp) {
       token
       Key {
         _id
-        userId
         rating
         timestamp
       }
