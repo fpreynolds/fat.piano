@@ -14,6 +14,9 @@ const Profile = () => {
         {/* <ListTracker /> */}
         <NewTracker />
       </div>
+      <div className="container">
+        <LineChart />
+      </div>
     </div>
   );
 };

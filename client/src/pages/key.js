@@ -5,8 +5,8 @@ import { ADD_KEY } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 function Key() {
-  const [addKey] = useMutation(ADD_KEY);
   const [selectedOption, setSelectedOption] = useState();
+  const [addKey] = useMutation(ADD_KEY);
   const options = [
     {
       value: "5",
