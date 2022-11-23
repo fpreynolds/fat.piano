@@ -11,7 +11,6 @@ const typeDefs = gql`
   type Tracker {
     _id: ID!
     theme: String
-    keys: [Key]
   }
 
   type Key {

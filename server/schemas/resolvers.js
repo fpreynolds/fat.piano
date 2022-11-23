@@ -73,7 +73,7 @@ const resolvers = {
     addTracker: async (parent, args, context) => {
       console.log(context.user);
       if (context.user) {
-        const tracker = new Tracker({ keys });
+        const tracker = await Tracker.create(args);
 
         await User.findByIdAndUpdate(context.user.trackers._id, {
           $push: { trackers: tracker },
