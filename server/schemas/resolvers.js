@@ -81,7 +81,7 @@ const resolvers = {
 
         return tracker;
       }
-      throw new AuthenticationError("this one");
+      throw new AuthenticationError("tracker error");
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {
@@ -89,13 +89,21 @@ const resolvers = {
           new: true,
         });
       }
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError("updateUser error");
     },
-    //!TODO: figure this out hopefully maybe
-    // updateKey: async (parent, { _id }) => {
-    //   // key to be updated based on rating system,
-    //   //this mutation could possibly be deleted
-    // },
+    addKey: async (parent, args, context) => {
+      console.log(context.user);
+      if (context.user) {
+        const key = await Key.create(args);
+
+        await User.findByIdAndUpdate(context.user._id, {
+          $push: { keys: key },
+        });
+
+        return key;
+      }
+      throw new AuthenticationError("key error");
+    },
   },
 };
 
