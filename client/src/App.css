@@ -34,3 +34,9 @@ li a {
 li a:hover {
 	background-color: gray;
 }
+
+img {
+	height: 600px;
+	width: 390px;
+	background-image: left bottom;
+}
