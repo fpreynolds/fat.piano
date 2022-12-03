@@ -1,9 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useLazyQuery, useMutation } from "@apollo/client";
-import Auth from "../utils/auth";
-import Key from "../pages/key";
-import { QUERY_ALL_TRACKERS } from "../utils/queries";
-import Tracker from "../pages/Tracker";
+// import React, { useEffect, useState } from "react";
+// import { useLazyQuery, useMutation } from "@apollo/client";
+// import Auth from "../utils/auth";
+// import Key from "../pages/key";
+// import { QUERY_ALL_TRACKERS } from "../utils/queries";
+// import Tracker from "../pages/Tracker";
+
+// // import { useStoreContext } from "../utils/GlobalState";
+// // import LineChart from "../components/Chart-Demo";
+// // import { QUERY_TRACKERS } from "../utils/queries";
+
+// // const SingleTracker = ({ theme }) => {
+// //   const [, dispatch] = useStoreContext();
+// // };
 
 // const ListTracker = () => {
 //   const [state, dispatch] = useStoreContext();
@@ -22,14 +30,4 @@ import Tracker from "../pages/Tracker";
 
 // export default ListTracker;
 
-//!Single Tracker
-// import React, { useState } from "react";
-// import { useMutation } from "@apollo/client";
-// import { useStoreContext } from "../utils/GlobalState";
-// import LineChart from "../components/Chart-Demo";
-// import Mood from "./mood";
-// import { QUERY_TRACKERS } from "../utils/queries";
-
-// const SingleTracker = ({ theme }) => {
-//   const [, dispatch] = useStoreContext();
-// };
+// //!Single Tracker
